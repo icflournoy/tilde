@@ -16,13 +16,13 @@ function cd() {
     fi;
 }
 
-function logdate { date '+%Y%m%d_%H%M' }
+function logdate { date '+%Y%m%d_%H%M'; }
 
-function calc() { echo "$1" | bc -l }
+function calc() { echo "$1" | bc -l; }
 
-function h() { history | grep "$*" | tail -n 30 }
+function h() { history | grep "$*" | tail -n 30; }
 
-function update_ians_profile() { wget -O /etc/profile.d/ians-profile.sh https://ian.pub/ians-profile.sh }
+function update_ians_profile() { wget -O /etc/profile.d/ians-profile.sh https://ian.pub/ians-profile.sh; }
 
 export HISTFILESIZE=
 export HISTSIZE=
