@@ -24,6 +24,8 @@ function h() { history | grep "$*" | tail -n 30; }
 
 function update_ians_profile() { wget -O /etc/profile.d/ians-profile.sh https://ian.pub/ians-profile.sh; }
 
+alias sshe="ssh -oUserKnownHostsFile=~/.ssh/ephemeral_hosts -oStrictHostKeyChecking=no"
+
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
