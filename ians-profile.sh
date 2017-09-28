@@ -27,7 +27,7 @@ function update_ians_profile() { wget -O /etc/profile.d/ians-profile.sh https://
 alias sshe="ssh -oUserKnownHostsFile=~/.ssh/ephemeral_hosts -oStrictHostKeyChecking=no"
 
 function sshi() {
-  ip=$(echo $1 | tr '-' | '.')
+  ip=$(echo $1 | tr '-' '.')
   sshe $ip
 }
 
