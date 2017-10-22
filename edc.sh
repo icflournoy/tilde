@@ -67,7 +67,7 @@ function sshi() { sshe $(echo $1 | tr '-' '.'); }
 if [ ! -f $HOME_DIR/.edc ]; then
   if [ ! -f $HOME_DIR/.edc-hush ]; then
     echo "/etc/profile.d/edc.sh: You can enable advanced features buy touch'ing ~/.edc"
-    touch $HOME_DIR/.edc-hush
+    echo "This file created by /etc/profile.d/edc.sh" > $HOME_DIR/.edc-hush
   fi
   break
 fi
