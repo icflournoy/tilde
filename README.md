@@ -2,9 +2,9 @@
 
 > There's no place like ~/.
 
-`edc.sh` - All-in-one linux sysadmin every day carry tool set. The script itself is pretty self-explanatory.
-
 ---
+
+`edc.sh` - All-in-one linux sysadmin every day carry tool set. The script itself is pretty self-explanatory.
 
 ### Usage
 
