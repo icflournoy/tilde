@@ -56,7 +56,7 @@ alias ..="cd .."
 alias sshe="ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no"
 
 # AWS's default hostnames are ip-10-0-0-1 so this just ssh's to 10.0.0.1 via sshe
-function sshi() { sshe $(echo $1 | tr '-' '.') }
+function sshi() { sshe $(echo $1 | tr '-' '.'); }
 
 
 ###
