@@ -64,7 +64,13 @@ function sshi() { sshe $(echo $1 | tr '-' '.'); }
 ###
 
 # Bail because the user hasn't enabled optional features
-if [ ! -f $HOME_DIR/.edc ]; then exit 0; fi
+if [ ! -f $HOME_DIR/.edc ]; then
+  if [ ! -f $HOME_DIR/.edc-hush ]; then
+    echo "/etc/profile.d/edc.sh: You can enable advanced features buy touch'ing ~/.edc"
+    touch $HOME_DIR/.edc-hush
+  fi
+  exit 0;
+fi
 
 # This replaces the cd function with one that ls' a directory after you cd to it
 # I find myself doing `cd somedir; ls` too frequently
