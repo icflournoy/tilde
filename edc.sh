@@ -66,7 +66,7 @@ function sshi() { sshe $(echo $1 | tr '-' '.'); }
 # Bail because the user hasn't enabled optional features
 if [ ! -f $HOME_DIR/.edc ]; then
   if [ ! -f $HOME_DIR/.edc-hush ]; then
-    echo "/etc/profile.d/edc.sh: You can enable advanced features buy touch'ing ~/.edc"
+    echo "/etc/profile.d/edc.sh: You can enable advanced features by touch'ing ~/.edc"
     echo "This file created by /etc/profile.d/edc.sh" > $HOME_DIR/.edc-hush
   fi
   break
