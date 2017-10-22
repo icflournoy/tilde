@@ -69,7 +69,7 @@ if [ ! -f $HOME_DIR/.edc ]; then
     echo "/etc/profile.d/edc.sh: You can enable advanced features buy touch'ing ~/.edc"
     touch $HOME_DIR/.edc-hush
   fi
-  exit 0;
+  break
 fi
 
 # This replaces the cd function with one that ls' a directory after you cd to it
