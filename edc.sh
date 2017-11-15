@@ -30,7 +30,7 @@ fi
 function update_edc() { wget -O /etc/profile.d/edc.sh https://edc.ian.pub/; }
 
 # New aliases and functions don't interrupt existing user workflow
-function logdate { date '+%Y%m%d_%H%M'; }
+function logdate { date -u '+%Y%m%d_%H%M'; }
 function calc() { echo "$1" | bc -l; }
 
 # Better reverse-history visual.  Usage `h wget` shows last 30 times you called wget
