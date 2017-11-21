@@ -53,7 +53,8 @@ alias ..="cd .."
 
 
 # Useful for ssh'ing to servers that come and go frequently (in an autoscale group). 'e' for ephemeral.
-alias sshe="ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no"
+alias sshe="ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no -o LogLevel=quiet"
+alias scpe="scp -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no"
 
 # AWS's default hostnames are ip-10-0-0-1 so this just ssh's to 10.0.0.1 via sshe
 function sshi() { sshe $(echo $1 | tr '-' '.'); }
