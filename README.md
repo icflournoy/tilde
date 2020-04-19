@@ -1,13 +1,9 @@
 # tilde
 
-> There's no place like ~/.
+> `There's no place like ~`
 
----
+**Summary:** [`@icflournoy's`](https://github.com/icflournoy) starting point after a fresh Linux install on a new workstation.
 
-`edc.sh` - All-in-one linux sysadmin every day carry tool set. The script itself is pretty self-explanatory.
+## Usage
 
-### Usage
-
-```sh
-$ wget -O /etc/profile.d/edc.sh https://edc.ian.pub
-```
+- `scripts/oobe` - Bootstrap the system with Salt and other tools needed to run the following automation tasks.
