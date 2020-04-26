@@ -1,0 +1,14 @@
+#!/bin/bash
+# tilde out-of-box-experience
+# used to bootstrap automation for a new linux workstation
+set -x
+set -eo pipefail
+
+if (( UID != "0" )); then
+  echo "Please run as root user"
+fi
+
+wget -O /tmp/bootstrap-salt https://bootstrap.saltstack.com
+sh /tmp/bootstrap-salt \
+  -X \
+  git
