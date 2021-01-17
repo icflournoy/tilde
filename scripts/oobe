@@ -8,7 +8,21 @@ if (( UID != "0" )); then
   echo "Please run as root user"
 fi
 
-wget -O /tmp/bootstrap-salt https://bootstrap.saltstack.com
-sh /tmp/bootstrap-salt \
-  -X \
-  git
+# salt-bootstrap is currently broken on Fedora 32 and Ubuntu 20
+# due to python3.8 dropping distro package
+
+dnf install salt-minion
+
+function salt() {
+  salt-call \
+    --local \
+    --file-root="" \
+    --pillar-root="" \
+    --retcode-passthrough \
+    --id "$(hostname -s)" \
+    --output-diff \
+    --log-level=debug \
+    --state-output="mixed_id" \
+    --state-verbose=True \
+    "$@"
+}
