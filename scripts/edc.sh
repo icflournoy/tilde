@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # edc.sh
-# 2018 Ian Flournoy
+# 20?? Ian Flournoy
 
 # This file should live at /etc/profile.d/edc.sh
 
@@ -28,13 +28,24 @@ fi
 
 # TODO: check for perms
 function update_edc() { wget -O /etc/profile.d/edc.sh https://edc.ian.pub/; }
-
 # New aliases and functions don't interrupt existing user workflow
 function logdate { date -u '+%Y%m%d_%H%M'; }
 function calc() { echo "$1" | bc -l; }
-
 # Better reverse-history visual.  Usage `h wget` shows last 30 times you called wget
 function h() { grep "$*" ~/.bash_eternal_history | tail -n 30; }
+function mkcd() { mkdir -p "$1"; cd "$1" }
+# This replaces the cd function with one that ls' a directory after you cd to it
+# I find myself doing `cd somedir; ls` too frequently
+function cd() {
+    new_directory="$*";
+    if [ $# -eq 0 ]; then
+        new_directory=${HOME};
+    fi;
+    builtin cd "${new_directory}"
+    if [ $? -eq 0 ]; then
+      /bin/ls -hlp --color=auto --group-directories-first
+    fi;
+}
 
 # Git shortcuts
 alias ga="git add"
@@ -50,7 +61,6 @@ alias gco="git checkout"
 alias alive="ping -c 3 8.8.8.8"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ..="cd .."
-
 
 # Useful for ssh'ing to servers that come and go frequently (in an autoscale group). 'e' for ephemeral.
 alias sshe="ssh -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no -o LogLevel=quiet"
@@ -72,19 +82,6 @@ if [ ! -f $HOME_DIR/.edc ]; then
   fi
   break
 fi
-
-# This replaces the cd function with one that ls' a directory after you cd to it
-# I find myself doing `cd somedir; ls` too frequently
-function cd() {
-    new_directory="$*";
-    if [ $# -eq 0 ]; then
-        new_directory=${HOME};
-    fi;
-    builtin cd "${new_directory}"
-    if [ $? -eq 0 ]; then
-      /bin/ls -hlp --color=auto --group-directories-first
-    fi;
-}
 
 # TODO: Check for no eternal history, and existing .bash_history, concatenate .bash_history into eternal history
 export HISTFILESIZE=
